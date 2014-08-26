@@ -1,0 +1,39 @@
+{% extends 'litnacionals/base.html' %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{% trans %}<b><font size = "6" color = "ff0000" face = "Courier">Livros: Categoria Lit. Nacional</b></font> {% endtrans %}  </h1>
+                {% if _logged_user and ('ADMIN' in _logged_user.groups) %}
+                <a href="{{ admin_path }}" class="btn btn-success">{% trans %}Admin{% endtrans %}</a>
+                {% endif %}
+                <hr/>
+                <h2>{% trans %}Lista de Livros{% endtrans %}</h2>
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>{% trans %}Autor{% endtrans %}</th>
+                        <th>{% trans %}Preco{% endtrans %}</th>
+                        <th>{% trans %}Titulo{% endtrans %}</th>
+                        <th>{% trans %}Edicao{% endtrans %}</th>
+                        <th>{% trans %}Descricao{% endtrans %}</th>
+                        <th>{% trans %}Editora{% endtrans %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for litnacional in litnacionals %}
+                        <tr>
+                            <td>{{ litnacional.Autor }}</td>
+                            <td>{{ litnacional.Preco }}</td>
+                            <td>{{ litnacional.Titulo }}</td>
+                            <td>{{ litnacional.Edicao }}</td>
+                            <td>{{ litnacional.Descricao }}</td>
+                            <td>{{ litnacional.Editora }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
