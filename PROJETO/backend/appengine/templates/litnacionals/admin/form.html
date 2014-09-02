@@ -12,12 +12,12 @@
 
                     <form action="{{ save_path }}" method="post" role="form">
                         {{ csrf_input() }}
-                        {{ form_input(_('Autor'),'Autor',litnacional.Autor,errors.Autor) }}
-                        {{ form_input(_('Preco'),'Preco',litnacional.Preco,errors.Preco) }}
-                        {{ form_input(_('Titulo'),'Titulo',litnacional.Titulo,errors.Titulo) }}
-                        {{ form_input(_('Edicao'),'Edicao',litnacional.Edicao,errors.Edicao) }}
-                        {{ form_input(_('Descricao'),'Descricao',litnacional.Descricao,errors.Descricao) }}
-                        {{ form_input(_('Editora'),'Editora',litnacional.Editora,errors.Editora) }}
+                        {{ form_input(_('Autor'),'autor',litnacional.autor,errors.autor) }}
+                        {{ form_input(_('Preco'),'preco',litnacional.preco,errors.preco) }}
+                        {{ form_input(_('Edicao'),'edicao',litnacional.edicao,errors.edicao) }}
+                        {{ form_input(_('Titulo'),'titulo',litnacional.titulo,errors.titulo) }}
+                        {{ form_input(_('Descricao'),'descricao',litnacional.descricao,errors.descricao) }}
+                        {{ form_input(_('Editora'),'editora',litnacional.editora,errors.editora) }}
                         <button type="submit" class="btn btn-success">{% trans %}Save{% endtrans %}</button>
                     </form>
                 </div>

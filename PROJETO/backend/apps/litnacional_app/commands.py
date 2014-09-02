@@ -10,12 +10,12 @@ class LitnacionalPublicForm(ModelForm):
     Form used to show properties on app's home
     """
     _model_class = Litnacional
-    _include = [Litnacional.Autor, 
-                Litnacional.Preco, 
-                Litnacional.Titulo, 
-                Litnacional.Edicao, 
-                Litnacional.Descricao, 
-                Litnacional.Editora]
+    _include = [Litnacional.autor, 
+                Litnacional.preco, 
+                Litnacional.edicao, 
+                Litnacional.titulo, 
+                Litnacional.descricao, 
+                Litnacional.editora]
 
 
 class LitnacionalForm(ModelForm):
@@ -23,12 +23,12 @@ class LitnacionalForm(ModelForm):
     Form used to save and update operations on app's admin page
     """
     _model_class = Litnacional
-    _include = [Litnacional.Autor, 
-                Litnacional.Preco, 
-                Litnacional.Titulo, 
-                Litnacional.Edicao, 
-                Litnacional.Descricao, 
-                Litnacional.Editora]
+    _include = [Litnacional.autor, 
+                Litnacional.preco, 
+                Litnacional.edicao, 
+                Litnacional.titulo, 
+                Litnacional.descricao, 
+                Litnacional.editora]
 
 
 class LitnacionalDetailForm(ModelForm):
@@ -37,12 +37,12 @@ class LitnacionalDetailForm(ModelForm):
     """
     _model_class = Litnacional
     _include = [Litnacional.creation, 
-                Litnacional.Autor, 
-                Litnacional.Preco, 
-                Litnacional.Edicao, 
-                Litnacional.Titulo, 
-                Litnacional.Descricao, 
-                Litnacional.Editora]
+                Litnacional.autor, 
+                Litnacional.preco, 
+                Litnacional.titulo, 
+                Litnacional.edicao, 
+                Litnacional.descricao, 
+                Litnacional.editora]
 
 
 class LitnacionalShortForm(ModelForm):
@@ -51,12 +51,12 @@ class LitnacionalShortForm(ModelForm):
     """
     _model_class = Litnacional
     _include = [Litnacional.creation, 
-                Litnacional.Autor, 
-                Litnacional.Preco, 
-                Litnacional.Edicao, 
-                Litnacional.Titulo, 
-                Litnacional.Descricao, 
-                Litnacional.Editora]
+                Litnacional.autor, 
+                Litnacional.preco, 
+                Litnacional.titulo, 
+                Litnacional.edicao, 
+                Litnacional.descricao, 
+                Litnacional.editora]
 
 
 class SaveLitnacionalCommand(SaveCommand):

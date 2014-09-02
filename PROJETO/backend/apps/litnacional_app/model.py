@@ -6,10 +6,10 @@ from gaeforms.ndb import property
 
 
 class Litnacional(Node):
-    Titulo = ndb.StringProperty(required=True)
-    Autor = ndb.StringProperty(required=True)
-    Editora = ndb.StringProperty(required=True)
-    Edicao = ndb.DateProperty(required=True)
-    Descricao = ndb.StringProperty(required=True)
-    Preco = ndb.FloatProperty(required=True)
+    preco = ndb.FloatProperty(required=True)
+    autor = ndb.StringProperty(required=True)
+    editora = ndb.StringProperty(required=True)
+    descricao = ndb.StringProperty(required=True)
+    edicao = ndb.StringProperty(required=True)
+    titulo = ndb.StringProperty(required=True)
 

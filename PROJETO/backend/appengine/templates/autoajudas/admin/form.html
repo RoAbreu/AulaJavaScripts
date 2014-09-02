@@ -1,0 +1,28 @@
+{% extends 'autoajudas/base.html' %}
+{% block body %}
+    {% set autoajuda=autoajuda or None %}
+    {% set errors=errors or None %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <br/>
+
+                <div class="well">
+                    <h1 class="text-center">{% trans %}Autoajuda Form{% endtrans %}</h1>
+
+                    <form action="{{ save_path }}" method="post" role="form">
+                        {{ csrf_input() }}
+                        {{ form_input(_('Autor'),'Autor',autoajuda.Autor,errors.Autor) }}
+                        {{ form_input(_('Preco'),'preco',autoajuda.preco,errors.preco) }}
+                        {{ form_input(_('Edicao'),'edicao',autoajuda.edicao,errors.edicao) }}
+                        {{ form_input(_('Titulo'),'titulo',autoajuda.titulo,errors.titulo) }}
+                        {{ form_input(_('Descricao'),'descricao',autoajuda.descricao,errors.descricao) }}
+                        {{ form_input(_('Editora'),'editora',autoajuda.editora,errors.editora) }}
+                        <button type="submit" class="btn btn-success">{% trans %}Save{% endtrans %}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

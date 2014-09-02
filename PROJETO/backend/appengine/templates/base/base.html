@@ -45,14 +45,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/"class="navbar-brand"><font color = "ff0000" face = "Courier">Home</font></a>
+            <a href="/"class="navbar-brand"><font color = "ff0000" face = "Garamond">Home</font></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 {% macro select_tab(tab='')%}
-                    <li {{ 'class=active' if tab=='ACAOS' }}><a href="/acaos">{% trans %}<font color = "ff0000" face = "Courier">Ação</font>{% endtrans %}</a></li>
-                    <li {{ 'class=active' if tab=='AVENTURAS' }}><a href="/aventuras">{% trans %}<font color = "ff0000" face = "Courier">Aventura</font>{% endtrans %}</a></li>
-                     <li {{ 'class=active' if tab=='LITNACIONALS' }}><a href="/litnacionals">{% trans %}<font color = "ff0000" face = "Courier">Lit. Nacional</font>{% endtrans %}</a></li>
+                    <li {{ 'class=active' if tab=='LITNACIONALS' }}><a href="/litnacionals">{% trans %}<font color = "ff0000" face = "Garamond">Lit. Nacional</font>{% endtrans %}</a></li>
+                    <li {{ 'class=active' if tab=='LITESTRANGEIRAS' }}><a href="/litestrangeiras">{% trans %}<font color = "ff0000" face = "Garamond">Lit. Estrangeira</font>{% endtrans %}</a></li>
+                    <li {{ 'class=active' if tab=='LITINFANTPJUVS' }}><a href="/litinfantojuvs">{% trans %}<font color = "ff0000" face = "Garamond">Lit. Infanto Juvenil</font>{% endtrans %}</a></li>
+                    <li {{ 'class=active' if tab=='DIDATICOSS' }}><a href="/didaticoss">{% trans %}<font color = "ff0000" face = "Garamond">Didáticos</font>{% endtrans %}</a></li>
+                    <li {{ 'class=active' if tab=='DICIONARIOSS' }}><a href="/dicionarioss">{% trans %}<font color = "ff0000" face = "Garamond">Dicionários</font>{% endtrans %}</a></li>
+                    <li {{ 'class=active' if tab=='RELIGIAOS' }}><a href="/religiaos">{% trans %}<font color = "ff0000" face = "Garamond">Religião</font>{% endtrans %}</a></li>
+                    <li {{ 'class=active' if tab=='AUTOAJUDA' }}><a href="/autoajudas">{% trans %}<font color = "ff0000" face = "Garamond">AutoAjuda</font>{% endtrans %}</a></li>
                     {% if _logged_user and 'ADMIN' in _logged_user.groups %}
                         <li {{ 'class=active' if tab=='ADMIN' }}><a href="/admin">{% trans %}Admin{% endtrans %}</a></li>
                     {% endif %}

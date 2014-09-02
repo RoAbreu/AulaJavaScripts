@@ -15,8 +15,8 @@
                         <th>{% trans %}Creation{% endtrans %}</th>
                         <th>{% trans %}Autor{% endtrans %}</th>
                         <th>{% trans %}Preco{% endtrans %}</th>
-                        <th>{% trans %}Titulo{% endtrans %}</th>
                         <th>{% trans %}Edicao{% endtrans %}</th>
+                        <th>{% trans %}Titulo{% endtrans %}</th>
                         <th>{% trans %}Descricao{% endtrans %}</th>
                         <th>{% trans %}Editora{% endtrans %}</th>
                     </tr>
@@ -28,12 +28,12 @@
                                     class="glyphicon glyphicon-pencil"></i></a></td>
                             <td>{{ litnacional.id }}</td>
                             <td>{{ litnacional.creation }}</td>
-                            <td>{{ litnacional.Autor }}</td>
-                            <td>{{ litnacional.Preco }}</td>
-                            <td>{{ litnacional.Titulo }}</td>
-                            <td>{{ litnacional.Edicao }}</td>
-                            <td>{{ litnacional.Descricao }}</td>
-                            <td>{{ litnacional.Editora }}</td>
+                            <td>{{ litnacional.autor }}</td>
+                            <td>{{ litnacional.preco }}</td>
+                            <td>{{ litnacional.edicao }}</td>
+                            <td>{{ litnacional.titulo }}</td>
+                            <td>{{ litnacional.descricao }}</td>
+                            <td>{{ litnacional.editora }}</td>
                             <td>
                                 <form action="{{ litnacional.delete_path }}" method="post" onsubmit="return confirm('{{_('Are you sure to delete? Press cancel to avoid deletion.')}}');">
                                     {{ csrf_input() }}

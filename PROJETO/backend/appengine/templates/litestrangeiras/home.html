@@ -1,0 +1,35 @@
+{% extends 'litestrangeiras/base.html' %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h2>{% trans %}<font color = "blue" face = "Garamond">Livros de Lit. Estrangeira</font>{% endtrans %}</h2>
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>{% trans %}Titulo{% endtrans %}</th>
+                        <th>{% trans %}Autor{% endtrans %}</th>
+                        <th>{% trans %}Editora{% endtrans %}</th>
+                        <th>{% trans %}Edição{% endtrans %}</th>
+                        <th>{% trans %}Preço{% endtrans %}</th>
+                        <th>{% trans %}Descrição{% endtrans %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for litestrangeira in litestrangeiras %}
+                        <tr>
+                            <td>{{ litestrangeira.Autor }}</td>
+                            <td>{{ litestrangeira.preco }}</td>
+                            <td>{{ litestrangeira.edicao }}</td>
+                            <td>{{ litestrangeira.titulo }}</td>
+                            <td>{{ litestrangeira.descricao }}</td>
+                            <td>{{ litestrangeira.editora }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
