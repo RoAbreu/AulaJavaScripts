@@ -1,0 +1,35 @@
+{% extends 'bibliass/base.html' %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h2>{% trans %}<font color = "blue" face = "Garamond">Biblias</font>{% endtrans %}</h2>
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>{% trans %}Titulo{% endtrans %}</th>
+                        <th>{% trans %}Autor{% endtrans %}</th>
+                        <th>{% trans %}Editora{% endtrans %}</th>
+                        <th>{% trans %}Edição{% endtrans %}</th>
+                        <th>{% trans %}Preço{% endtrans %}</th>
+                        <th>{% trans %}Descrição{% endtrans %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for biblias in bibliass %}
+                        <tr>
+                            <td>{{ biblias.autor }}</td>
+                            <td>{{ biblias.preco }}</td>
+                            <td>{{ biblias.edicao }}</td>
+                            <td>{{ biblias.titulo }}</td>
+                            <td>{{ biblias.descricao }}</td>
+                            <td>{{ biblias.editora }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

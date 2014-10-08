@@ -1,0 +1,65 @@
+{% extends 'listaDidaticoss/base.html' %}
+{% block css %}
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-social.css"/>
+    <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css"/>
+{% endblock %}
+{% block body%}
+     <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h2>{% trans %}<font color = "blue" face = "Garamond">Categorias:</font>{% endtrans %}</h2>
+            </div>
+        </div>
+     </div>>
+        <br/>
+
+    <div class="container text-center">
+        <div class="row2">
+            <div class="col-xs-4">
+                <div class="well" style="background-color:#000000">
+                    <h2>{% trans %}
+                        <a href="/litnacionals"><b><font face = "Geramond">1º ao 5º ano</b></font></a>{% endtrans %}
+                    </h2>
+                    <br/>
+                </div>
+            </div>
+
+            <div class="col-xs-4">
+                <div class="well"style="background-color:#000000">
+                    <h2>{% trans %}
+                        <a href="/litestrangeiras"><b><font face = "Geramond">6º ao 9º ano</b></font></a>{% endtrans %}
+                    </h2>
+                    <br/>
+                </div>
+            </div>
+
+            <div class="col-xs-4">
+                <div class="well"style="background-color:#000000">
+                    <h2>{% trans %}
+                        <a href="/litinfantojuvs"><b><font face = "Geramond"></b>Ensino Infantil</font></a>{% endtrans %}
+                    </h2>
+                    <br/>
+                </div>
+            </div>
+
+            <div class="col-xs-4">
+                <div class="well"style="background-color:#000000">
+                    <h2>{% trans %}
+                        <a href="/didaticoss"><b><font face = "Geramond"></b>Ensino Médio</font></a>{% endtrans %}
+                    </h2>
+                    <br/>
+                </div>
+            </div>
+
+             <div class="col-xs-4">
+                <div class="well"style="background-color:#000000">
+                    <h2>{% trans %}
+                        <a href="/dicionarioss"><b><font face = "Geramond">Profissionalizante</b></font></a>{% endtrans %}
+                    </h2>
+                    <br/>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -50,13 +50,8 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 {% macro select_tab(tab='')%}
-                    <li {{ 'class=active' if tab=='LITNACIONALS' }}><a href="/litnacionals">{% trans %}<font color = "ff0000" face = "Garamond">Lit. Nacional</font>{% endtrans %}</a></li>
-                    <li {{ 'class=active' if tab=='LITESTRANGEIRAS' }}><a href="/litestrangeiras">{% trans %}<font color = "ff0000" face = "Garamond">Lit. Estrangeira</font>{% endtrans %}</a></li>
-                    <li {{ 'class=active' if tab=='LITINFANTPJUVS' }}><a href="/litinfantojuvs">{% trans %}<font color = "ff0000" face = "Garamond">Lit. Infanto Juvenil</font>{% endtrans %}</a></li>
-                    <li {{ 'class=active' if tab=='DIDATICOSS' }}><a href="/didaticoss">{% trans %}<font color = "ff0000" face = "Garamond">Didáticos</font>{% endtrans %}</a></li>
-                    <li {{ 'class=active' if tab=='DICIONARIOSS' }}><a href="/dicionarioss">{% trans %}<font color = "ff0000" face = "Garamond">Dicionários</font>{% endtrans %}</a></li>
-                    <li {{ 'class=active' if tab=='RELIGIAOS' }}><a href="/religiaos">{% trans %}<font color = "ff0000" face = "Garamond">Religião</font>{% endtrans %}</a></li>
-                    <li {{ 'class=active' if tab=='AUTOAJUDA' }}><a href="/autoajudas">{% trans %}<font color = "ff0000" face = "Garamond">AutoAjuda</font>{% endtrans %}</a></li>
+                    <li {{ 'class=active' if tab=='BOOKS' }}><a href="/books/form">{% trans %}<font color = "ff0000" face = "Garamond">Sugestões de Livro</font>{% endtrans %}</a></li>
+                    <li {{ 'class=active' if tab=='BOOKS' }}><a href="/books">{% trans %}<font color = "ff0000" face = "Garamond">Livros Sugeridos</font>{% endtrans %}</a></li>
                     {% if _logged_user and 'ADMIN' in _logged_user.groups %}
                         <li {{ 'class=active' if tab=='ADMIN' }}><a href="/admin">{% trans %}Admin{% endtrans %}</a></li>
                     {% endif %}

@@ -1,0 +1,36 @@
+{% extends 'budismos/base.html' %}
+{% block body %}
+   {% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h2>{% trans %}<font color = "blue" face = "Garamond">Budismo</font>{% endtrans %}</h2>
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>{% trans %}Titulo{% endtrans %}</th>
+                        <th>{% trans %}Autor{% endtrans %}</th>
+                        <th>{% trans %}Editora{% endtrans %}</th>
+                        <th>{% trans %}Edição{% endtrans %}</th>
+                        <th>{% trans %}Preço{% endtrans %}</th>
+                        <th>{% trans %}Descrição{% endtrans %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for budismo in budismos %}
+                        <tr>
+                            <td>{{ budismo.autor }}</td>
+                            <td>{{ budismo.preco }}</td>
+                            <td>{{ budismo.edicao }}</td>
+                            <td>{{ budismo.titulo }}</td>
+                            <td>{{ budismo.descricao }}</td>
+                            <td>{{ budismo.editora }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

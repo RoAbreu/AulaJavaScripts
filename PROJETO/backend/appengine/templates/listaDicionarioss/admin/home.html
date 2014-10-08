@@ -1,0 +1,51 @@
+{% extends 'listaDicionarioss/base.html' %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>{% trans %}This is a generic home for listaDicionarios_app {% endtrans %}  </h1>
+                <a href="{{ new_path }}" class="btn btn-success">{% trans %}Create New ListaDicionarios{% endtrans %}</a>
+                <hr/>
+                <h2>{% trans %}List of ListaDicionarioss{% endtrans %}</h2>
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th/>
+                        <th>{% trans %}Id{% endtrans %}</th>
+                        <th>{% trans %}Creation{% endtrans %}</th>
+                        <th>{% trans %}Autor{% endtrans %}</th>
+                        <th>{% trans %}Preco{% endtrans %}</th>
+                        <th>{% trans %}Edicao{% endtrans %}</th>
+                        <th>{% trans %}Titulo{% endtrans %}</th>
+                        <th>{% trans %}Descricao{% endtrans %}</th>
+                        <th>{% trans %}Editora{% endtrans %}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for lista_dicionarios in lista_dicionarioss %}
+                        <tr>
+                            <td><a href="{{ lista_dicionarios.edit_path }}" class="btn btn-success btn-sm"><i
+                                    class="glyphicon glyphicon-pencil"></i></a></td>
+                            <td>{{ lista_dicionarios.id }}</td>
+                            <td>{{ lista_dicionarios.creation }}</td>
+                            <td>{{ lista_dicionarios.autor }}</td>
+                            <td>{{ lista_dicionarios.preco }}</td>
+                            <td>{{ lista_dicionarios.edicao }}</td>
+                            <td>{{ lista_dicionarios.titulo }}</td>
+                            <td>{{ lista_dicionarios.descricao }}</td>
+                            <td>{{ lista_dicionarios.editora }}</td>
+                            <td>
+                                <form action="{{ lista_dicionarios.delete_path }}" method="post" onsubmit="return confirm('{{_('Are you sure to delete? Press cancel to avoid deletion.')}}');">
+                                    {{ csrf_input() }}
+                                    <button class="btn btn-danger btn-sm"><i
+                                            class="glyphicon glyphicon-trash"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
