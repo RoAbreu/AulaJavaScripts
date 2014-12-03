@@ -15,6 +15,7 @@ def index(_logged_user):
    autor_arcos = query.fetch()
    chaves_de_livros=[arco.destination for arco in autor_arcos]
    livro_lista = ndb.get_multi(chaves_de_livros)
+   livro_lista=[livro for livro in livro_lista if livro!=None]
    form=BookFormTable()
    livro_lista=[form.fill_with_model(livro) for livro in livro_lista]
    editar_form_path=router.to_path(editar_form)
@@ -26,8 +27,11 @@ def index(_logged_user):
    return TemplateResponse(contexto)
 
 def delete(book_id):
-    chave = ndb.Key(Book,int(book_id))
+    chave = ndb.Key(Book, int(book_id))
     chave.delete()
+    query = AutorArco.find_origins(chave)
+    chaves_dos_arcos = query.fetch(keys_only=True)
+    ndb.delete_multi(chaves_dos_arcos)
     return RedirectResponse(router.to_path(index))
 
 @no_csrf
@@ -80,7 +84,7 @@ def salvar(_logged_user, **propriedades):
     erros = book_form.validate()
     if erros:
         contexto = {'salvar_path': router.to_path(salvar), 'erros': erros, 'book': book_form}
-        return TemplateResponse(contexto, 'books/form.html')
+        return TemplateResponse(contexto, 'books/home.html')
     else:
         book = book_form.fill_model()
         chave_do_livro = book.put()

@@ -1,0 +1,82 @@
+{% extends 'livros/base.html' %}
+{% block js %}
+    <script type = "text/javascript" src ="/static/angular/js/angular.min.js "></script>
+    <script type = "text/javascript" src ="/static/livro/js/livro.js "></script>
+    <script type = "text/javascript" >
+        var rest=angular.module('rest', []);
+        rest.factory('LivroApi', function($http){
+            return{
+                salvar: function(livro){
+                    return $http.post('{{ rest_save_path }}', livro);
+                },
+                listar: function(){
+                    return $http.post('/livros/rest/index');
+                },
+                deletar: function(id){
+                    return $http.post('/livros/rest/delete', {'livro_id':id});
+                }
+            };
+        });
+
+
+        var livroApp=angular.module('livroapp', ['livroModulo'],'rest' );
+
+        function LivroController($scope, LivroApi){
+            $scope.livro={titulo: 'Senhor dos Aneis', preco: '40 ', autor: 'J. R. R. Tolkien'};
+            $scope.mostrarFormFlag=false;
+            $scope.listandoFlag=true;
+            $scope.livroLista=[];
+            LivroApi.listar().success(function(livro){
+                $scope.livroLista=livro;
+                $scope.listandoFlag=false;
+            });
+
+            $scope.mostrarOuesconderForm=function(){
+               $scope.mostrarFormFlag=!$scope.mostrarFormFlag;
+            };
+            $scope.adicionarLivro=function(livro){
+                $scope.livroLista.unshift(livro)
+            };
+            $scope.removerLivro=function(livro){
+                for(var i=0; i < $scope.livroLista.length; i+=1){
+                    if(livro.id==$scope.livroLista[i].id){
+                        $scope.livroLista.splice(i,1);
+                        break;
+                    }
+                }
+            };
+        };
+    </script>
+{% endblock %}
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3" ng-app="livro-modulo" ng-controller="LivroController">
+
+                <button class="btn btn-success" ng-click="mostrarOuesconderForm()">Cadastrar Novo Livro</button>
+                <br />
+                <br />
+                <livroform ng-show="mostrarFormFlag" book="livro" title-label="Titulo" autor-label="Autor"
+                           price-label="Preço" save-complete="adicionarLivro(livro)"></livroform>
+                <hr/>
+
+                   <h1 class="text-center"><font color = "blue" face = "Garamond">Tabela de Livros</font></h1>
+                   <table class="table table-striped table-hover">
+                       <thead>
+                        <tr>
+                            <th></th>
+                            <th>{% trans %}Titulo{% endtrans %}</th>
+                            <th>{% trans %}Preço{% endtrans %}</th>
+                            <th>{% trans %}Autor{% endtrans %}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                           <tr livrolinha ng-repeat="l in livroLista" book="l" delete-complete="removerLivro(livro)"></tr>
+                        </tbody>
+                   </table>
+            <img src="/static/img/ajax.gif" ng-show="listandoFlag"/>
+            </div>
+         </div>
+    </div>
+{% endblock %}

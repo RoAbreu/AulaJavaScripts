@@ -33,6 +33,8 @@
     <![endif]-->
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <script src="/static/jquery-1.11.1.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
     {% block css %}{% endblock %}
     {% block js %}{% endblock %}
 </head>
@@ -50,8 +52,8 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 {% macro select_tab(tab='')%}
-                    <li {{ 'class=active' if tab=='BOOKS' }}><a href="/books/form">{% trans %}<font color = "ff0000" face = "Garamond">Sugestões de Livro</font>{% endtrans %}</a></li>
-                    <li {{ 'class=active' if tab=='BOOKS' }}><a href="/books">{% trans %}<font color = "ff0000" face = "Garamond">Livros Sugeridos</font>{% endtrans %}</a></li>
+                     <li {{ 'class=active' if tab=='LIVROS' }}><a href="/livroNovos">{% trans %}<font color = "ff0000" face = "Garamond">Sugestões</font>{% endtrans %}</a></li>
+
                     {% if _logged_user and 'ADMIN' in _logged_user.groups %}
                         <li {{ 'class=active' if tab=='ADMIN' }}><a href="/admin">{% trans %}Admin{% endtrans %}</a></li>
                     {% endif %}

@@ -1,0 +1,24 @@
+<form class="well" ng-submit="salvar()">
+    <h1 class="text-center"> <font color = "blue" face = "Garamond">Formulario</font></h1>
+    <div role="form">
+
+          <div id="tituloDiv" class="form-group"
+                ng-class="{true:'',false:'has-error'}[erros.titulo==null]">
+               <label for="tituloInput" class="control-label">Titulo</label>
+               <input id="tituloInput" type="text" class="form-control" ng-model="livro.titulo">
+               <span id="help-titulo" class="help-block">{{ erros.titulo }}</span>
+          </div>
+          <div class="form-group" ng-class="{true:'has-error',false:''}[erros.autor!=null]">
+               <label for="autorInput" class="control-label">Autor</label>
+               <input id="autorInput" type="text" class="form-control" ng-model="livro.autor">
+               <span id="help-autor" class="help-block">{{erros.autor}}</span>
+          </div>
+          <div class="form-group" ng-class="{true:'has-error',false:''}[erros.preco!=null]">
+               <label for="precoInput" class="control-label">Preco</label>
+               <input id="precoInput" type="text" class="form-control" ng-model="livro.preco">
+               <span id="help-preco" class="help-block">{{erros.preco}}</span>
+          </div>
+          <button type="submit" class="btn btn-success">Salvar</button>
+          <img ng-show="executandoSalvamento" src="/static/img/ajax.gif">
+    </div>
+</form>
